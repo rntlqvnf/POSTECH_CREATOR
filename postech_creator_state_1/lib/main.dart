@@ -46,8 +46,67 @@ class MyHomePage extends StatelessWidget {
               Text(
                 'Provider로 전달받은 값은',
               ),
+              ConsumerText()
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => HomePageMultiProvider())),
+        ));
+  }
+}
+
+class ConsumerText extends StatelessWidget {
+  const ConsumerText({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      '${context.watch<int>()}',
+      style: Theme.of(context).textTheme.headline4,
+    );
+  }
+}
+
+class MyHomePageStateful extends StatefulWidget {
+  MyHomePageStateful({Key key}) : super(key: key);
+
+  @override
+  _MyHomePageStatefulState createState() => _MyHomePageStatefulState();
+}
+
+class _MyHomePageStatefulState extends State<MyHomePageStateful> {
+  int providerVal = 0;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    providerVal = context.read<int>();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('App bar'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
               Text(
-                '${context.watch<int>()}', //Q. 왜 watch를 쓸까?
+                'Provider로 전달받은 값은',
+              ),
+              Text(
+                '$providerVal',
                 style: Theme.of(context).textTheme.headline4,
               ),
             ],
@@ -59,5 +118,6 @@ class MyHomePage extends StatelessWidget {
               MaterialPageRoute(
                   builder: (BuildContext context) => HomePageMultiProvider())),
         ));
+    ;
   }
 }

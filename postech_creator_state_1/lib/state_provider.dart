@@ -12,9 +12,9 @@ class HomePageStateProvider extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<Student_State>.value(
-          value: Student_State(age: 20, name: '하재현', studentId: 20180673),
-          child: HomePage3(),
-        ),
+            value: Student_State(age: 20, name: '하재현', studentId: 20180673)),
+        Provider<Student_State>.value(
+            value: Student_State(age: 20, name: '이상오', studentId: 20202020)),
       ],
       child: HomePage3(),
     );

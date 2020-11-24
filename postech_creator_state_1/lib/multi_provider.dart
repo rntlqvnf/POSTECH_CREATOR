@@ -30,13 +30,7 @@ class HomePage2 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Provider로 전달받은 int 값은',
-            ),
-            Text(
-              '${context.watch<int>()}',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            ProviderInt(),
             Text(
               'Provider로 전달받은 string 값은',
             ),
@@ -60,6 +54,25 @@ class HomePage2 extends StatelessWidget {
             MaterialPageRoute(
                 builder: (BuildContext context) => HomePageStateProvider())),
       ),
+    );
+  }
+}
+
+class ProviderInt extends StatelessWidget {
+  const ProviderInt({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          'Provider로 전달받은 int 값은',
+        ),
+        Text(
+          '${context.watch<int>()}',
+          style: Theme.of(context).textTheme.headline4,
+        ),
+      ],
     );
   }
 }
