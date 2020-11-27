@@ -29,23 +29,7 @@ class HomePage2 extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ProviderInt(),
-            Text(
-              'Provider로 전달받은 string 값은',
-            ),
-            Text(
-              '${context.watch<String>()}',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            Text(
-              'Provider로 전달받은 doubld 값은',
-            ),
-            Text(
-              '${context.watch<double>()}',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+          children: <Widget>[ProviderInt()],
         ),
       ),
       floatingActionButton: FloatingActionButton(

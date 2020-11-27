@@ -118,6 +118,5 @@ class _MyHomePageStatefulState extends State<MyHomePageStateful> {
               MaterialPageRoute(
                   builder: (BuildContext context) => HomePageMultiProvider())),
         ));
-    ;
   }
 }
